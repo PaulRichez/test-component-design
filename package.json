@@ -7,7 +7,10 @@
     "start-design": "ng serve --project=\"design-system\" --port 4201",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
+    "storybook": "npm run docs:json && npm run ng -- run test-component-design:storybook",
+    "build-storybook": "npm run docs:json && build-storybook"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +27,16 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "babel-loader": "^8.2.3",
+    "@babel/core": "^7.16.0",
+    "@compodoc/compodoc": "^1.1.16",
+    "@storybook/addon-actions": "^6.4.7",
+    "@storybook/addon-docs": "^6.4.7",
+    "@storybook/addon-essentials": "^6.4.7",
+    "@storybook/addon-links": "^6.4.7",
+    "@storybook/angular": "^6.4.7",
+    "@storybook/builder-webpack5": "^6.4.7",
+    "@storybook/manager-webpack5": "^6.4.7",
     "@angular-devkit/build-angular": "~12.2.18",
     "@angular/cli": "~12.2.18",
     "@angular/compiler-cli": "~12.2.0",
